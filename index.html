@@ -73,8 +73,16 @@
 * ConvertBase.hex2bin('f8'); // '11111000'
 * ConvertBase.dec2bin('22'); // '10110'
 */
+document.write('<center>');
+document.write('<h3>Escolha somente o número do menu abaixo</h3>');
+document.write('1 - bin2dec<br>');
+document.write('2 - dec2hex<br>');
+document.write('3 - hex2bin<br>');
+document.write('4 - dec2bin<br>');
 
-var conversao = prompt("Entre o número do tipo de conversão", "1 - bin2dec; 2 - dec2hex; 3 - hex2bin; 4 - dec2bin");
+var conversao = window.prompt("Entre somente o número");
+
+//var conversao = prompt("Entre o número do tipo de conversão", "1 - bin2dec; 2 - dec2hex; 3 - hex2bin; 4 - dec2bin");
 var numero = prompt("Entre o número a ser convertido", "11");
 
 if (conversao == null || conversao == "") {
