@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+/**
+* Convert From/To Binary/Decimal/Hexadecimal in JavaScript
+* https://gist.github.com/faisalman
+*
+* Copyright 2012-2015, Faisalman <fyzlman@gmail.com>
+* Licensed under The MIT License
+* http://www.opensource.org/licenses/mit-license
+*/
+
+(function(){
+
+    var ConvertBase = function (num) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.bin2dec = function (num) {
+        return ConvertBase(num).from(2).to(10);
+    };
+    
+    // binary to hexadecimal
+    ConvertBase.bin2hex = function (num) {
+        return ConvertBase(num).from(2).to(16);
+    };
+    
+    // decimal to binary
+    ConvertBase.dec2bin = function (num) {
+        return ConvertBase(num).from(10).to(2);
+    };
+    
+    // decimal to hexadecimal
+    ConvertBase.dec2hex = function (num) {
+        return ConvertBase(num).from(10).to(16);
+    };
+    
+    // hexadecimal to binary
+    ConvertBase.hex2bin = function (num) {
+        return ConvertBase(num).from(16).to(2);
+    };
+    
+    // hexadecimal to decimal
+    ConvertBase.hex2dec = function (num) {
+        return ConvertBase(num).from(16).to(10);
+    };
+    
+    this.ConvertBase = ConvertBase;
+    
+})(this);
+
+/*
+* Usage example:
+* ConvertBase.bin2dec('111'); // '7'
+* ConvertBase.dec2hex('42'); // '2a'
+* ConvertBase.hex2bin('f8'); // '11111000'
+* ConvertBase.dec2bin('22'); // '10110'
+*/
+
+var conversao = prompt("Entre o número do tipo de conversão", "1 - bin2dec; 2 - dec2hex; 3 - hex2bin; 4 - dec2bin");
+var numero = prompt("Entre o número a ser convertido", "11");
+
+if (conversao == null || conversao == "") {
+  txt = "Usuário cancelou o prompt.";
+} else if(conversao == 1) {
+    var bin = ConvertBase.bin2dec(numero);
+    alert('Convertendo '+numero+' em binário para decimal teremos '+bin);
+} else if(conversao == 2) {
+    var bin = ConvertBase.dec2hex(numero);
+    alert('Convertendo '+numero+' em decimal para hexadecimal teremos '+bin);
+} else if(conversao == 3) {
+    var bin = ConvertBase.hex2bin(numero);
+    alert('Convertendo '+numero+' em hexadecimal para binário teremos '+bin);
+} else if(conversao == 4) {
+    var bin = ConvertBase.dec2bin(numero);
+    alert('Convertendo '+numero+' em decimal para binário teremos '+bin);
+} else {
+    alert('Escolha um número somente entre 1 e 4');
+} 
+
+// https://gist.github.com/faisalman/4213592
+</script>
+
+</body>
+</html>
