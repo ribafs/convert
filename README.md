@@ -1,2 +1,3 @@
-# converter-js
-Conversão entre as bases binária, decimal e hexadecimal usando Javascript
+# Conversão entre bases binário, decimal e hexadecimal
+
+Usando Javascript
