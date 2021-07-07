@@ -1,4 +1,4 @@
-# Conversão entre bases binário, decimal e hexadecimal
+# Conversão entre bases binário, decimal e hexa
 
 Usando Javascript
 
