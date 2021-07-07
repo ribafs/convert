@@ -1,111 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Convert com Bootbox.js</title>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootbox.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
+
+    <script src="convert.js"></script>
 </head>
 <body>
 
 <script>
-/**
-* Convert From/To Binary/Decimal/Hexadecimal in JavaScript
-* https://gist.github.com/faisalman
-*
-* Copyright 2012-2015, Faisalman <fyzlman@gmail.com>
-* Licensed under The MIT License
-* http://www.opensource.org/licenses/mit-license
-*/
 
-(function(){
+bootbox.alert("<h3>Conversão entre bases: binários, decimais e hexa</h3>", function(){ 
 
-    var ConvertBase = function (num) {
-        return {
-            from : function (baseFrom) {
-                return {
-                    to : function (baseTo) {
-                        return parseInt(num, baseFrom).toString(baseTo);
-                    }
-                };
+    var numero = prompt("Entre o número a ser convertido", 11); 
+
+    bootbox.prompt({
+        title: "Selecione e entre somente o número!",
+        value: ['1'],
+        inputType: 'checkbox',
+        inputOptions: [{
+            text: '1 - bin2dec',
+            value: '1'
+        },
+        {
+            text: '2 - dec2hex',
+            value: '2'
+        },
+        {
+            text: '3 - hex2bin',
+            value: '3'
+        },
+        {
+            text: '4 - dec2bin',
+            value: '4'
+        }],
+        callback: function (result) {
+            if(result == null) { 
+                alert('Você cancelou');
+            }else if (result != null) {
+              if (result.length > 1) {
+                bootbox.alert("Favor selecionar somente uma opção");
+                return false;
+              } else if(result == 1) {
+                var bin = ConvertBase.bin2dec(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de binário para decimal teremos => '+bin);
+              }else if(result == 2) {
+                var bin = ConvertBase.dec2hex(numero);
+                bin = bin.toUpperCase();
+                bootbox.alert('<b>Convertendo '+numero+' de decimal para hexadecimal teremos => '+bin);
+              }else if(result == 3) {
+                var bin = ConvertBase.hex2bin(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de hexadecimal para binário teremos => '+bin);
+              }else if(result == 4) {
+                var bin = ConvertBase.dec2bin(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de decimal para binário teremos => '+bin);
+              }
             }
-        };
-    };
-        
-    // binary to decimal
-    ConvertBase.bin2dec = function (num) {
-        return ConvertBase(num).from(2).to(10);
-    };
-    
-    // binary to hexadecimal
-    ConvertBase.bin2hex = function (num) {
-        return ConvertBase(num).from(2).to(16);
-    };
-    
-    // decimal to binary
-    ConvertBase.dec2bin = function (num) {
-        return ConvertBase(num).from(10).to(2);
-    };
-    
-    // decimal to hexadecimal
-    ConvertBase.dec2hex = function (num) {
-        return ConvertBase(num).from(10).to(16);
-    };
-    
-    // hexadecimal to binary
-    ConvertBase.hex2bin = function (num) {
-        return ConvertBase(num).from(16).to(2);
-    };
-    
-    // hexadecimal to decimal
-    ConvertBase.hex2dec = function (num) {
-        return ConvertBase(num).from(16).to(10);
-    };
-    
-    this.ConvertBase = ConvertBase;
-    
-})(this);
+        }
+    });
+});
 
-/*
-* Usage example:
-* ConvertBase.bin2dec('111'); // '7'
-* ConvertBase.dec2hex('42'); // '2a'
-* ConvertBase.hex2bin('f8'); // '11111000'
-* ConvertBase.dec2bin('22'); // '10110'
-*/
-document.write('<center>');
-document.write('<h3>Conversão entre bases: binários, decimais e hexadecimais</h3>');
-document.write('<h5>Escolha somente o número do menu abaixo</h5>');
-document.write('1 - bin2dec<br>');
-document.write('2 - dec2hex<br>');
-document.write('3 - hex2bin<br>');
-document.write('4 - dec2bin<br>');
-
-var conversao = window.prompt("Entre somente o número");
-
-//var conversao = prompt("Entre o número do tipo de conversão", "1 - bin2dec; 2 - dec2hex; 3 - hex2bin; 4 - dec2bin");
-var numero = prompt("Entre o número a ser convertido", "11");
-
-if (conversao == null || conversao == "") {
-  txt = "Usuário cancelou o prompt.";
-} else if(conversao == 1) {
-    var bin = ConvertBase.bin2dec(numero);
-    alert('Convertendo '+numero+' em binário para decimal teremos '+bin);
-} else if(conversao == 2) {
-    var bin = ConvertBase.dec2hex(numero);
-    alert('Convertendo '+numero+' em decimal para hexadecimal teremos '+bin);
-} else if(conversao == 3) {
-    var bin = ConvertBase.hex2bin(numero);
-    alert('Convertendo '+numero+' em hexadecimal para binário teremos '+bin);
-} else if(conversao == 4) {
-    var bin = ConvertBase.dec2bin(numero);
-    alert('Convertendo '+numero+' em decimal para binário teremos '+bin);
-} else {
-    alert('Escolha um número somente entre 1 e 4');
-} 
-
-// https://gist.github.com/faisalman/4213592
+// http://bootboxjs.com/examples.html
 </script>
 
-</body>
-</html>
