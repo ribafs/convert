@@ -12,3 +12,4 @@ A versão/release 1.0 usa Javascript puro.
 
 Esta versão usa as modais do bootbox .
 
+http://bootboxjs.com/
