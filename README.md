@@ -8,7 +8,6 @@ https://gist.github.com/faisalman/4213592
 
 E achei que ficou um bom exemplo em Javascript e útil.
 
-<<<<<<< HEAD
 ## Matemática das bases numéricas citadas
 
 Aproveitarei para matar um pouco da saudade dos tempos em que fui professor de matemática e para preparar algo que venha a servir também para um dos meus filhos, que está fazendo Segurança da Informação e para o qual passei algumas informações sobre numeração binária.
