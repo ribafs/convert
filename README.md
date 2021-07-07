@@ -1,4 +1,4 @@
-# Conversão entre bases binário, decimal e hexadecimal
+# Conversão entre bases binário, decimal e hexa
 
 Usando Javascript
 
@@ -8,6 +8,7 @@ https://gist.github.com/faisalman/4213592
 
 E achei que ficou um bom exemplo em Javascript e útil.
 
+<<<<<<< HEAD
 ## Matemática das bases numéricas citadas
 
 Aproveitarei para matar um pouco da saudade dos tempos em que fui professor de matemática e para preparar algo que venha a servir também para um dos meus filhos, que está fazendo Segurança da Informação e para o qual passei algumas informações sobre numeração binária.
@@ -136,3 +137,10 @@ Binário Decimal
 Queria mostrar estas informações e para mim está bom. Daqui pra frente é com você. Caso tenha mais dúvida sobre estes sistemas de nuemração com certeza será bem fácil encotrnar bom material sobre o assunto. Em seus estudos se sobrar alguma dúvida e quizer compartilhar comigo fique a votnade para criar um Issue.
 
 
+=======
+A versão/release 1.0 usa Javascript puro.
+
+Esta versão usa as modais do bootbox .
+
+http://bootboxjs.com/
+>>>>>>> 4b8a7d541f951d80910bdb0582b3d5e43fb5d49b
